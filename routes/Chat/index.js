@@ -9,4 +9,7 @@ router.post('/', validateToken, CreateUser)
 const GetChatList = require('./GetChatList_All.js')
 router.get('/', validateToken, GetChatList)
 
+const Chatting = require('./Chatting.js')
+router.post('/chatting/:id', validateToken, Chatting)
+
 module.exports = router;
