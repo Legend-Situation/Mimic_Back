@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 const db = require('./models');
 
 //DataBase Router Call
-const usersRouter = require('./routes/Users');
-app.use('/auth', usersRouter);
+const ApiRouter = require('./routes/');
+app.use('/', ApiRouter);
 
 //Port
 db.sequelize.sync().then(() => {

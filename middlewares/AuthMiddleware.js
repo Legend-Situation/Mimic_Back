@@ -14,7 +14,7 @@ const validateToken = async (req, res, next) => {
 
 	try {
 		const decoded = verify(accessToken, secret);
-		const userId = decoded.id;
+		const userId = decoded.userid;
 		const user = await Users.findOne({
 			where: {
 				userId,
