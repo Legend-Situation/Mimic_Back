@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 const db = require('./models');
 
 //DataBase Router Call
-const ApiRouter = require('./routes/');
+const ApiRouter = require('./routes');
 app.use('/', ApiRouter);
 
 //Port
