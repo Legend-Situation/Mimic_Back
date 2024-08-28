@@ -13,4 +13,8 @@ router.use('/jwt', jwtRouter);
 const uploadRouter = require('./Upload');
 router.use('/upload', uploadRouter);
 
+//채팅 관련 라우터
+const ChatRouter = require('./Chat')
+router.use('/chat', ChatRouter)
+
 module.exports = router;

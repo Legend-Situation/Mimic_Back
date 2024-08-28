@@ -1,16 +1,18 @@
-const Users = require('./User.js');
-
 module.exports = (sequelize, DataTypes) => {
   const Chat = sequelize.define(
     'Chat',
     {
       chatid: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
       },
       name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      profileImg: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -19,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       conversation: {
-        type: DataTypes.STRING,
+        type: DataTypes.JSON,
         allowNull: true,
       },
-      previousConversation: {
+      chatUrl: {
         type: DataTypes.STRING,
         allowNull: true,
       },

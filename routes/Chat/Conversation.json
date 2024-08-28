@@ -1,0 +1,22 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "type": "text",
+          "text": "너는 지금부터 내 대화상대가 되어야해\n\n아래 대화내용을 토대로 유저와 대화를 해줘\n아래 대화와 비슷한 내용으로 답장을 해주고 말투도 비슷하게 해줘"
+        }
+      ]
+    }
+  ],
+  "temperature": 1,
+  "max_tokens": 256,
+  "top_p": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "response_format": {
+    "type": "text"
+  }
+}
