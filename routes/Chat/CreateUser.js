@@ -2,12 +2,14 @@ const authUtil = require('../../response/authUtil.js');
 const { Chat } = require('../../models')
 
 const CreateUser = async (req, res) => {
-  const { name, profileImg, chatUrl, info, previousConversationTarget } = req.body;
+  const { name, profileImg, chatUrl, info, previousConversationTarget, gender, age } = req.body;
 
   try {
     await Chat.create({
       name: name,
       profileImg: profileImg,
+      age: age,
+      gender: gender,
       info: info,
       chatUrl: chatUrl,
       previousConversationTarget: previousConversationTarget,

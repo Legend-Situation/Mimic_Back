@@ -3,7 +3,7 @@ const { Users } = require('../../models');
 const bcrypt = require('bcrypt');
 
 const SignUp = async (req, res) => {
-  const { userid, password, name, age, gender } = req.body;
+  const { userid, password, name } = req.body;
   try {
     const user = await Users.findOne({
       where: { userid: userid },
@@ -18,9 +18,7 @@ const SignUp = async (req, res) => {
       await Users.create({
         userid: userid,
         password: hash,
-        name: name,
-        age: age,
-        gender: gender
+        name: name
       });
       return res
         .status(200)
