@@ -12,4 +12,7 @@ router.get('/', validateToken, GetChatList)
 const Chatting = require('./Chatting.js')
 router.post('/chatting/:id', validateToken, Chatting)
 
+const ChattingLog = require('./GetChatLog.js')
+router.get('/chatting/:id', validateToken, ChattingLog)
+
 module.exports = router;
