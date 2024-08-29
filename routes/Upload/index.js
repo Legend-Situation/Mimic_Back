@@ -5,10 +5,13 @@ const { imgUpload, chatUpload } = require('./Upload');
 const request = require('request');
 const fs = require('fs');
 const GptBody = require('./GptBody.json')
+const authUtil = require('../../response/authUtil.js');
 
 router.post('/image', validateToken, imgUpload.single('img'), (req, res) => {
 	const IMG_URL = `${process.env.SERVER_ORIGIN}/image/${req.file.filename}`;
-	res.json({ url: IMG_URL });
+	res
+		.status(200)
+		.send(authUtil.successTrue(200, '유저 회원가입에 성공하였습니다.', { url: IMG_URL }));
 });
 
 router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
@@ -19,7 +22,9 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 	fs.readFile(filePath, 'utf8', (err, data) => {
 		if (err) {
 			console.error(err);
-			return res.status(500).send('Failed to read txt');
+			return res
+				.status(500)
+				.send(authUtil.successTrue(500, '텍스트파일을 읽을 수 없습니다.', { error: err }));
 		}
 
 		// GPTBody 업데이트
@@ -54,13 +59,17 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 		request.post(options, function (err, httpResponse, body) {
 			if (err) {
 				console.error(err);
-				return res.status(500).send('Failed to send GPT request');
+				res
+					.status(500)
+					.send(authUtil.successFalse(500, 'GPT에 요청을 보낼 수 없습니다.'));
 			}
 
 			const contents = body.choices.map(choice => {
 				return JSON.parse(choice.message.content);
 			});
-			res.json({ FileURL: FILE_URL, Contents: contents });
+			res
+				.status(200)
+				.send(authUtil.successTrue(200, '파일업로드에 성공했습니다.', { FileURL: FILE_URL, Contents: contents }));
 		});
 	});
 });

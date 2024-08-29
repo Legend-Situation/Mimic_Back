@@ -8,8 +8,8 @@ const validateToken = async (req, res, next) => {
 
 	if (!accessToken) {
 		return res
-			.status(401)
-			.send(authUtil.successFalse(401, '엑세스 토큰이 존재하지 않습니다.'));
+			.status(403)
+			.send(authUtil.successFalse(403, '엑세스 토큰이 존재하지 않습니다.'));
 	}
 
 	try {
@@ -29,10 +29,10 @@ const validateToken = async (req, res, next) => {
 		}
 	} catch (err) {
 		if (err.name === 'TokenExpiredError') {
-			return res.status(401).json(authUtil.successTrue(401, '토큰이 만료되었습니다.'));
+			return res.status(403).json(authUtil.successTrue(403, '토큰이 만료되었습니다.'));
 		}
 
-		return res.status(401).json(authUtil.successFalse(401, '유효하지 않은 토큰입니다.'));
+		return res.status(403).json(authUtil.successFalse(403, '유효하지 않은 토큰입니다.'));
 	}
 };
 
