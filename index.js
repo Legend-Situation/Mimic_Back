@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const requestIp = require("request-ip");
+const logger = require('./logger.js')
 dotenv.config();
 
 app.use(express.json());
@@ -15,9 +16,7 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.use((req, res, next) => {
 	const ipAddress = requestIp.getClientIp(req);
 	const requestPath = req.path;
-	console.log(`-------------------------------------------------------------`);
-	console.log(`Request received from IP: ${ipAddress}, Path: ${requestPath}`);
-	console.log(`-------------------------------------------------------------`);
+	logger.info(`Request received`, { ip: ipAddress, path: requestPath });
 	next();
 });
 
@@ -38,6 +37,7 @@ app.use('/', ApiRouter);
 
 //Port
 db.sequelize.sync().then(() => {
-	console.log(`-------------------------------------------------------------`);
-	app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+	app.listen(PORT, () => {
+		logger.info(`Sever Started on Port ${process.env.PORT}`)
+	});
 });

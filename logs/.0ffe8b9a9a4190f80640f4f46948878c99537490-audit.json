@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/Users/hyun/Coding/Project/Mimic/server/logs/.0ffe8b9a9a4190f80640f4f46948878c99537490-audit.json",
+    "files": [
+        {
+            "date": 1725084451724,
+            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-08-31.log",
+            "hash": "717bb3a0a0ce442cf223178fe3838dc03ed0da087d5119ca5c53c83f52f767da"
+        }
+    ],
+    "hashType": "sha256"
+}
