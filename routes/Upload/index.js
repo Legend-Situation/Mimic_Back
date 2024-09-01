@@ -11,7 +11,7 @@ router.post('/image', validateToken, imgUpload.single('img'), (req, res) => {
 	const IMG_URL = `${process.env.SERVER_ORIGIN}/image/${req.file.filename}`;
 	res
 		.status(200)
-		.send(authUtil.successTrue(200, '유저 회원가입에 성공하였습니다.', { url: IMG_URL }));
+		.send(authUtil.successTrue(200, '이미지 업로드가 완료되었습니다.', { url: IMG_URL }));
 });
 
 router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
@@ -31,8 +31,8 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 		const updatedGptBody = {
 			...GptBody,
 			messages: [
-				...GptBody.messages, // 기존 메시지를 유지
-				{   // 새로운 사용자 메시지 추가
+				...GptBody.messages,
+				{  
 					"role": "user",
 					"content": [
 						{
