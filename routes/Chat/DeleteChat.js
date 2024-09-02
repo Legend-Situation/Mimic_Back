@@ -10,9 +10,10 @@ const GetChatLog = async (req, res) => {
 
     if (ChatLog) {
       if (ChatLog.userid === req.user.dataValues.userid) {
+        await Chat.destroy({ where: { chatid: chatid } });
         return res
           .status(200)
-          .send(authUtil.successTrue(200, '채팅을 찾았습니다.', ChatLog));
+          .send(authUtil.successTrue(200, '채팅을 삭제했습니다.', ChatLog));
       } else {
         return res
           .status(403)

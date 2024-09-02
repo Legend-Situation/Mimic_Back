@@ -9,6 +9,11 @@
             "date": 1725084451725,
             "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-08-31.error.log",
             "hash": "1fbf9b2d45e249ba5ffa7ed1f2a5e8f0236aa3b9e81a9d071f0e741384161ba8"
+        },
+        {
+            "date": 1725241001981,
+            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-02.error.log",
+            "hash": "efd8c1dfc81c12365681a38f2d45909290aaf18cfc8a4dc67c5e738e4ad1c9d2"
         }
     ],
     "hashType": "sha256"

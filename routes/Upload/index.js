@@ -65,7 +65,7 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 			}
 
 			const contents = body.choices.map(choice => {
-				return JSON.parse(choice.message.content);
+				return JSON.parse(choice.message.content); 
 			});
 			res
 				.status(200)

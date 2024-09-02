@@ -114,7 +114,7 @@ const Chatting = async (req, res) => {
           // 대화 내용을 데이터베이스에 업데이트
           await Chat.update({ conversation: previousConversations }, { where: { chatid: req.params.id } });
 
-          res.json(body.choices[0].message.content);
+          res.json(body.choices[0].message);
         });
       });
     } else {

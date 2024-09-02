@@ -1,5 +1,5 @@
 const authUtil = require('../../response/authUtil.js');
-const { Chat, User } = require('../../models');
+const { Chat } = require('../../models');
 
 const GetChatList_All = async (req, res) => {
   try {
