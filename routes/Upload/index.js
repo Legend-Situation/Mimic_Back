@@ -64,6 +64,8 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 					.send(authUtil.successFalse(500, 'GPT에 요청을 보낼 수 없습니다.'));
 			}
 
+			console.log(body);
+
 			const contents = body.choices.map(choice => {
 				return JSON.parse(choice.message.content); 
 			});
