@@ -1,5 +1,5 @@
 const authUtil = require('../../response/authUtil.js');
-const { Chat, Users } = require('../../models');
+const { Chat } = require('../../models');
 const Conversation = require('./Conversation.json');
 const request = require('request');
 const fs = require('fs');
