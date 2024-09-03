@@ -16,7 +16,6 @@ const UpdatePost = async (req, res) => {
         profileImg: req.body.profileImg,
         info: req.body.info,
         age: req.body.age,
-        gender: req.body.gender,
         // conversation,
         // chatUrl,
         // previousConversationTarget
