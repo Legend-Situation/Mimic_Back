@@ -3,29 +3,17 @@ const authUtil = require('../../response/authUtil.js');
 
 const UpdatePost = async (req, res) => {
   const chatid = req.params.id;
-  let data = {}; 
 
   await Chat.findOne({ where: { chatid: chatid } }).then(async chat => {
     if (!chat) {
       return res
         .status(401)
-        .send(authUtil.successFalse(401, '채팅을 찾을 수 없습니다.'));
-    } else {
-      data = {
-        name: req.body.name,
-        profileImg: req.body.profileImg,
-        info: req.body.info,
-        age: req.body.age,
-        // conversation,
-        // chatUrl,
-        // previousConversationTarget
-      };
+        .send(authUtil.successFalse(401, '유저를 찾을 수 없습니다.'));
     }
     if (chat.userid === req.user.dataValues.userid) {
-      await chat.update(data, { where: { chatid: chatid } });
       return res
         .status(200)
-        .send(authUtil.successTrue(200, '게시글 수정 완료!'));
+        .send(authUtil.successTrue(200, '유저를 찾았습니다.', chat));
     } else {
       return res
         .status(401)

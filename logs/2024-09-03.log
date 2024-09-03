@@ -229,3 +229,26 @@
 2024-09-03T07:22:29.245Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
 2024-09-03T07:22:34.072Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatting/10
 2024-09-03T07:22:55.588Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatting/11
+2024-09-03T08:46:24.841Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:46:27.185Z [MIMIC] info: Request received - IP: ::1, Path: /auth/signin
+2024-09-03T08:47:03.173Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatting/13
+2024-09-03T08:47:36.519Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:47:37.955Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:47:49.716Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:47:51.222Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:47:55.911Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:47:59.056Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:00.174Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:12.844Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:14.259Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:20.635Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chtuser/13
+2024-09-03T08:48:24.949Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:43.618Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatuser/13
+2024-09-03T08:48:49.590Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:48:58.241Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatuser/12
+2024-09-03T08:49:07.595Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:49:08.756Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:49:17.208Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatuser/11
+2024-09-03T08:49:28.737Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
+2024-09-03T08:49:29.855Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatuser/11
+2024-09-03T08:49:41.507Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatuser/9

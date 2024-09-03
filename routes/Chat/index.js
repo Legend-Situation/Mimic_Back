@@ -21,4 +21,7 @@ router.delete('/chatting/:id', validateToken, DelteChat)
 const UpdateChatUser = require('./UpdateChatUser.js')
 router.put('/chatting/:id', validateToken, UpdateChatUser)
 
+const GetChatUser = require('./GetChatUser.js')
+router.get('/chatuser/:id', validateToken, GetChatUser)
+
 module.exports = router;
