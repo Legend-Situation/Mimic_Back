@@ -19,6 +19,11 @@
             "date": 1725319563883,
             "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-03.log",
             "hash": "87900c4ef38b1929046cb8987c96c2409d4596996791b9b43c274f0ebfa9590b"
+        },
+        {
+            "date": 1725376118117,
+            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-04.log",
+            "hash": "e68eac98f639117d0b826b0417991f489c633b2d89e85d986b8e2107c2b96e0c"
         }
     ],
     "hashType": "sha256"
