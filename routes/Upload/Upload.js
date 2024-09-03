@@ -17,6 +17,7 @@ const imgUpload = multer({
       cb(null, path.basename(file.originalname, ext) + Date.now() + ext + '.jpg');
     },
   }),
+  limits: { fileSize: 100 * 1024 * 1024 },
 });
 
 // 채팅 파일 업로드
@@ -35,6 +36,7 @@ const chatUpload = multer({
       cb(null, path.basename(file.originalname, ext) + Date.now() + ext + '.txt');
     },
   }),
+  limits: { fileSize: 100 * 1024 * 1024 },
 });
 
 module.exports = { imgUpload, chatUpload };

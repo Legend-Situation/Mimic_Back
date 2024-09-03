@@ -1,16 +1,16 @@
 const authUtil = require('../../response/authUtil.js');
-const { Chat } = require('../../models');
+const {Chat} = require('../../models');
 
 const GetChatLog = async (req, res) => {
   const chatid = req.params.id;
   try {
     const ChatLog = await Chat.findOne({
-      where: { chatid: chatid },
+      where: {chatid: chatid},
     });
 
     if (ChatLog) {
       if (ChatLog.userid === req.user.dataValues.userid) {
-        await Chat.destroy({ where: { chatid: chatid } });
+        await Chat.destroy({where: {chatid: chatid}});
         return res
           .status(200)
           .send(authUtil.successTrue(200, '채팅을 삭제했습니다.', ChatLog));
@@ -26,7 +26,7 @@ const GetChatLog = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).send(authUtil.unknownError({ error: error }));
+    return res.status(500).send(authUtil.unknownError({error: error}));
   }
 };
 
