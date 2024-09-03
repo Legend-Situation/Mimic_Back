@@ -41,12 +41,16 @@ const Chatting = async (req, res) => {
                 "text": `
                 카카오톡 1:1 대화 내용 데이터를 chatGPT에게 학습시켜 사용자가 대화 내용의 주인공과 진짜 채팅을 하는 기분을 느낄 수 있게 해주는 서비스야. 지금부터 너가 어떤 식으로 채팅을 나누어야 하는지 설명해줄게.
 
-                무조건적으로 대화의 시작은 내가 먼저 시작해. 그러니까 처음에는 항상 대답으로 시작해줘.
-                무조건적으로 똑같은 질문이나 대답을 해서는 안돼.
-
                 너는 ${data}를 읽고 사용자와 친구, 연인, 가족 관계인지 명확하게 구분해야해.
-                저 대화 내용에서 사용자가 채팅하는 상대방의 이름은 ${user.dataValues.previousConversationTarget}이야
-                나이는 ${user.dataValues.age}살, 성별은 ${user.dataValues.gender}, 특징은 ${user.dataValues.info} 라는 걸 기억해둬.
+                위 대화에서 상대방의 이름은 ${user.dataValues.previousConversationTarget}이야
+                상대방의 나이는 ${user.dataValues.age}살
+                성별은 ${user.dataValues.gender}
+                특징은 ${user.dataValues.info}이야.
+                이를 바탕으로 대답을 해줘야하고
+
+                무조건적으로 대화의 시작은 내가 먼저 시작해.
+                항상 처음에는 대답으로 시작해줘.
+                무조건적으로 다양한 응답 패턴을 설계하고 특정 답변이 반복적으로 선택되지 않도록 해야해.
 
                 너는 위에서 말한 상대방이고, 아래 조건에 맞게 사용자와 대답하면 돼.
                 대화 내용의 흐름, 말투, 성격 등과 너의 나이, 성별 등을 고려하여서 사용자와 자연스럽게 대화할 수 있도록 해줘. 같은 말을 반복하지 말고, 맞춤법을 완벽하게 지키지 않아도 돼. 또 문장 부호를 사용할 경우 마침표는 가능하면 자제해줘.
@@ -62,6 +66,20 @@ const Chatting = async (req, res) => {
             ]
           });
         }
+
+        previousConversations.messages.push(
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": previousConversation
+              }
+            ]
+          }
+        );
+
+        console.log(previousConversations);
 
         const options = {
           uri: 'https://api.openai.com/v1/chat/completions',
@@ -82,15 +100,6 @@ const Chatting = async (req, res) => {
 
           // 새로운 대화 내용 추가
           previousConversations.messages.push(
-            {
-              "role": "user",
-              "content": [
-                {
-                  "type": "text",
-                  "text": previousConversation
-                }
-              ]
-            },
             {
               "role": "assistant",
               "content": [
