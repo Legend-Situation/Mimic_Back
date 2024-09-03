@@ -17,7 +17,7 @@ const UpdatePost = async (req, res) => {
     } else {
       return res
         .status(401)
-        .send(authUtil.successFalse(401, '게시글 작성자만 수정할 수 있습니다.'));
+        .send(authUtil.successFalse(401, '게시글 작성자만 조회할 수 있습니다.'));
     }
   });
 };
