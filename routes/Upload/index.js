@@ -32,7 +32,7 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 			...GptBody,
 			messages: [
 				...GptBody.messages,
-				{  
+				{
 					"role": "user",
 					"content": [
 						{
@@ -64,10 +64,22 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 					.send(authUtil.successFalse(500, 'GPT에 요청을 보낼 수 없습니다.'));
 			}
 
+			if (body.error && body.error.code === 'model_not_found') {
+				return res
+					.status(400)
+					.send(authUtil.successFalse(400, '지정된 모델을 찾을 수 없거나 접근 권한이 없습니다.', { error: body.error }));
+			}
+
+			if (body.error && body.error.code === 'context_length_exceeded') {
+				return res
+					.status(400)
+					.send(authUtil.successFalse(400, '파일이 너무 크거나 채팅기록이 너무 많습니다.', { error: body.error }));
+			}
+
 			console.log(body);
 
 			const contents = body.choices.map(choice => {
-				return JSON.parse(choice.message.content); 
+				return JSON.parse(choice.message.content);
 			});
 			res
 				.status(200)
