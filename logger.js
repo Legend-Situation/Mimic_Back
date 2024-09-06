@@ -8,7 +8,6 @@ const logDir = `${appRoot}/logs`;
 
 const { combine, timestamp, label, printf } = winston.format;
 
-// 2-1. 로그 출력 포맷 정의, printf : 실제 출력 양식
 const logFormat = printf(({ level, message, label, timestamp, ip, path }) => {
   return `${timestamp} [${label}] ${level}: ${message} - IP: ${ip}, Path: ${path}`;
 });

@@ -1,7 +1,0 @@
-2024-09-02T01:36:42.492Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
-2024-09-02T11:13:26.879Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
-2024-09-02T11:13:50.257Z [MIMIC] info: Sever Started on Port 3000 - IP: undefined, Path: undefined
-2024-09-02T11:14:04.597Z [MIMIC] info: Request received - IP: ::1, Path: /auth/signin
-2024-09-02T11:14:24.691Z [MIMIC] info: Request received - IP: ::1, Path: /chat
-2024-09-02T11:14:35.043Z [MIMIC] info: Request received - IP: ::1, Path: /chat/
-2024-09-02T11:14:53.178Z [MIMIC] info: Request received - IP: ::1, Path: /chat/chatting/7

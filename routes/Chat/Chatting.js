@@ -24,6 +24,8 @@ const Chatting = async (req, res) => {
           return res.status(500).send('Failed to read txt');
         }
 
+        const finalResult = Parsing(data);
+
         let previousConversations = ChatList.dataValues.conversation || { ...Conversation, messages: [] };
 
         const systemMessageExists = previousConversations.messages.some(
@@ -41,7 +43,7 @@ const Chatting = async (req, res) => {
                 "text": `
                 카카오톡 1:1 대화 내용 데이터를 chatGPT에게 학습시켜 사용자가 대화 내용의 주인공과 진짜 채팅을 하는 기분을 느낄 수 있게 해주는 서비스야. 지금부터 너가 어떤 식으로 채팅을 나누어야 하는지 설명해줄게.
 
-                너는 ${data}를 읽고 사용자와 친구, 연인, 가족 관계인지 명확하게 구분해야해.
+                너는 ${finalResult}를 읽고 사용자와 친구, 연인, 가족 관계인지 명확하게 구분해야해.
                 위 대화에서 상대방의 이름은 ${user.dataValues.previousConversationTarget}이야
                 상대방의 나이는 ${user.dataValues.age}살
                 성별은 ${user.dataValues.gender}

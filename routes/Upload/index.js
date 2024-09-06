@@ -4,8 +4,9 @@ const { validateToken } = require('../../middlewares/AuthMiddleware');
 const { imgUpload, chatUpload } = require('./Upload');
 const request = require('request');
 const fs = require('fs');
-const GptBody = require('./GptBody.json')
+const GptBody = require('./GptBody.json');
 const authUtil = require('../../response/authUtil.js');
+const { Parsing } = require('../../Function/dataParsing.js')
 
 router.post('/image', validateToken, imgUpload.single('img'), (req, res) => {
 	const IMG_URL = `${process.env.SERVER_ORIGIN}/image/${req.file.filename}`;
@@ -18,7 +19,6 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 	const filePath = req.file.path;
 	const FILE_URL = `${process.env.SERVER_ORIGIN}/chat/${req.file.filename}`;
 
-	// 파일에서 텍스트 추출
 	fs.readFile(filePath, 'utf8', (err, data) => {
 		if (err) {
 			console.error(err);
@@ -26,6 +26,8 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 				.status(500)
 				.send(authUtil.successTrue(500, '텍스트파일을 읽을 수 없습니다.', { error: err }));
 		}
+
+		const finalResult = Parsing(data);
 
 		// GPTBody 업데이트
 		const updatedGptBody = {
@@ -37,7 +39,7 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 					"content": [
 						{
 							"type": "text",
-							"text": data
+							"text": finalResult
 						}
 					]
 				}
@@ -59,7 +61,7 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 		request.post(options, function (err, httpResponse, body) {
 			if (err) {
 				console.error(err);
-				res
+				return res
 					.status(500)
 					.send(authUtil.successFalse(500, 'GPT에 요청을 보낼 수 없습니다.'));
 			}
@@ -73,20 +75,15 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 			if (body.error && body.error.code === 'context_length_exceeded') {
 				return res
 					.status(400)
-					.send(authUtil.successFalse(400, '파일이 너무 크거나 채팅기록이 너무 많습니다.', { error: body.error }));
+					.send(authUtil.successFalse(400, '파일이 너무크거나 채팅기록이 너무 많습니다.', { error: body.error }));
 			}
 
-			console.log(body);
-
-			const contents = body.choices.map(choice => {
-				return JSON.parse(choice.message.content);
-			});
+			const contents = body.choices.map(choice => choice.message.content);
 			res
 				.status(200)
 				.send(authUtil.successTrue(200, '파일업로드에 성공했습니다.', { FileURL: FILE_URL, Contents: contents }));
 		});
 	});
 });
-
 
 module.exports = router;

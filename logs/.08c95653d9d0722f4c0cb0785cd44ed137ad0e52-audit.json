@@ -6,24 +6,9 @@
     "auditLog": "/Users/hyun/Coding/Project/Mimic/server/logs/.08c95653d9d0722f4c0cb0785cd44ed137ad0e52-audit.json",
     "files": [
         {
-            "date": 1725084451725,
-            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-08-31.error.log",
-            "hash": "1fbf9b2d45e249ba5ffa7ed1f2a5e8f0236aa3b9e81a9d071f0e741384161ba8"
-        },
-        {
-            "date": 1725241001981,
-            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-02.error.log",
-            "hash": "efd8c1dfc81c12365681a38f2d45909290aaf18cfc8a4dc67c5e738e4ad1c9d2"
-        },
-        {
-            "date": 1725319563885,
-            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-03.error.log",
-            "hash": "e7adae200edd7625ccfcb59ef3670b5605f3de1bda78c7aa85758d43a4990600"
-        },
-        {
-            "date": 1725376118119,
-            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-04.error.log",
-            "hash": "25622b58fcca958b3bcdcfeb13c10ceb89ddcc1007b42aea5af5e17f8f3ca06a"
+            "date": 1725582667401,
+            "name": "/Users/hyun/Coding/Project/Mimic/server/logs/2024-09-06.error.log",
+            "hash": "61e82a6a00a960c30c219cc15b7a947b1f72cf72ed28ef8a4a1ba2fd4cc4e765"
         }
     ],
     "hashType": "sha256"
