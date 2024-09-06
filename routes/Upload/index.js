@@ -78,7 +78,10 @@ router.post('/chat', validateToken, chatUpload.single('file'), (req, res) => {
 					.send(authUtil.successFalse(400, '파일이 너무크거나 채팅기록이 너무 많습니다.', { error: body.error }));
 			}
 
-			const contents = body.choices.map(choice => choice.message.content);
+			const contents = body.choices.map(choice => {
+				return JSON.parse(choice.message.content);
+			});
+
 			res
 				.status(200)
 				.send(authUtil.successTrue(200, '파일업로드에 성공했습니다.', { FileURL: FILE_URL, Contents: contents }));
