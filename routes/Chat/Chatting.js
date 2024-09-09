@@ -5,6 +5,7 @@ const request = require('request');
 const fs = require('fs');
 const path = require('path');
 const logger = require('../../logger.js');
+const { Parsing } = require('../../Function/dataParsing.js');
 
 const Chatting = async (req, res) => {
   const { previousConversation } = req.body;

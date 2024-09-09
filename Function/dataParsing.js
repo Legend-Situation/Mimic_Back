@@ -1,4 +1,3 @@
-// dataProcessor.js
 function Parsing(data) {
   const rows = data.split(/\r?\n/).map(row => {
     const parts = row.split(',');
