@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 3000;
 
 //API Test
 app.get('/', (req, res) => {
-	res.send('API Running');
+	res.send(`Mimic Server Started on Port ${process.env.PORT}`);
 });
 
 //DataBase
@@ -38,6 +38,6 @@ app.use('/', ApiRouter);
 //Port
 db.sequelize.sync().then(() => {
 	app.listen(PORT, () => {
-		logger.info(`Sever Started on Port ${process.env.PORT}`)
+		logger.info(`Mimic Server Started on Port ${process.env.PORT}`)
 	});
 });
