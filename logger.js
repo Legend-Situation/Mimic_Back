@@ -13,12 +13,12 @@ const logFormat = printf(({ level, message, label, timestamp, ip, path }) => {
 });
 
 const logger = createLogger({
-  format: combine(label({ label: "MIMIC" }), timestamp(), logFormat),
+  format: combine(label({ label: "HARP" }), timestamp(), logFormat),
   transports: [
     new winstonDaily({
       level: "info",
       datePattern: "YYYY-MM-DD",
-      dirname: logDir,
+      dirname: `${logDir}/info`,
       filename: "%DATE%.log",
       maxSize: "20m",
       maxFiles: "30d",
@@ -26,7 +26,7 @@ const logger = createLogger({
     new winstonDaily({
       level: "error",
       datePattern: "YYYY-MM-DD",
-      dirname: logDir,
+      dirname: `${logDir}/error`,
       filename: "%DATE%.error.log",
       maxSize: "20m",
       maxFiles: "30d",
