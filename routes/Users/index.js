@@ -12,4 +12,7 @@ router.post('/signup', SignUp);
 const SignIn = require('./SignIn.js');
 router.post('/signin', SignIn);
 
+const DeleteAccount = require('./DeleteAccount.js')
+router.delete('/delete', validateToken, DeleteAccount)
+
 module.exports = router;
